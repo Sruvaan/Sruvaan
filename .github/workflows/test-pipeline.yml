@@ -1,0 +1,62 @@
+name: Test Sruvaan MCP Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create environment file
+        run: |
+          cat > .env << EOF
+          OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY=${{ github.repository }}
+          EOF
+
+      - name: Run tests
+        run: |
+          python -m pytest tests/ -v
+
+      - name: Run demo
+        run: |
+          python demo.py
+
+      - name: Validate configuration
+        run: |
+          python -c "
+          import sys
+          sys.path.insert(0, 'src')
+          from config import config
+          if config.validate_config():
+              print('Configuration validation passed')
+          else:
+              print('Configuration validation failed')
+              sys.exit(1)
+          "

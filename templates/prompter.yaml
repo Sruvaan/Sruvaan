@@ -1,0 +1,16 @@
+max_tokens: 500
+model: gpt-4
+system_prompt: You are a semantic parser for the Sruvaan MCP pipeline. Your task is
+  to extract structured information from user instructions.
+temperature: 0.1
+user_prompt: "\nINSTRUCTIONS:\n1. Parse the user instruction to identify the intent\
+  \ (action type)\n2. Extract all relevant entities (amounts, accounts, destinations,\
+  \ etc.)\n3. Return a JSON object with the following structure:\n   - intent: The\
+  \ main action (e.g., \"transfer\", \"book_flight\", \"send_email\")\n   - entities:\
+  \ Dictionary of key-value pairs for all extracted information\n   - auth_level:\
+  \ Default to \"L4\" for standard operations\n\nEXAMPLE INPUT: \"Transfer $75,000\
+  \ to account 7395-8845-2291 from account 1559-6623-4401\"\n\nEXAMPLE OUTPUT:\n{\n\
+  \  \"intent\": \"transfer\",\n  \"entities\": {\n    \"amount\": \"75000 USD\",\n\
+  \    \"to_account\": \"7395-8845-2291\",\n    \"from_account\": \"1559-6623-4401\"\
+  \n  },\n  \"auth_level\": \"L4\",\n  \"timestamp\": \"2025-07-29T10:30:00Z\",\n\
+  \  \"status\": \"ready\"\n}\n\nParse the following instruction: {instruction}\n"

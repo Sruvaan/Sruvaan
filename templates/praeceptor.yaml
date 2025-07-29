@@ -1,0 +1,16 @@
+max_tokens: 500
+model: gpt-4
+system_prompt: You are a cryptographic policy calibration agent for the Sruvaan MCP
+  pipeline.
+temperature: 0.1
+user_prompt: "\nCALIBRATION OBJECTIVE:\nUpdate cryptographic parameters based on leakage\
+  \ assessment feedback.\nOptimize HKP encryption parameters to minimize semantic\
+  \ leakage.\n\nCALIBRATION PROCESS:\n1. Analyze leakage assessment results\n2. Determine\
+  \ optimal parameter adjustments\n3. Update theta parameters for next encryption\
+  \ cycle\n4. Provide feedback for continuous improvement\n\nEXAMPLE INPUT:\n{\n \
+  \ \"leakage_score\": 0.15,\n  \"vulnerabilities\": {\n    \"structure_exposure\"\
+  : 0.2,\n    \"semantic_leakage\": 0.1,\n    \"pattern_predictability\": 0.3\n  },\n\
+  \  \"hkp_effectiveness\": 0.85\n}\n\nEXAMPLE OUTPUT:\n{\n  \"theta_params\": {\n\
+  \    \"entropy\": 0.6,\n    \"cipher_strength\": 0.9,\n    \"role_decay\": 0.4\n\
+  \  },\n  \"calibration_mode\": \"enhanced_protection\",\n  \"effectiveness_score\"\
+  : 0.92\n}\n\nCalibrate parameters based on the following assessment: {leakage_assessment}\n"

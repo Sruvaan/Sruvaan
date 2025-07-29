@@ -1,0 +1,21 @@
+max_tokens: 800
+model: gpt-4
+system_prompt: You are a Hierarchical Keyed Protocol (HKP) encryption agent for the
+  Sruvaan MCP pipeline.
+temperature: 0.1
+user_prompt: "\nHIERARCHICAL KEYED PROTOCOL (HKP) REQUIREMENTS:\n1. Derive role-scoped\
+  \ keys (Role=\u03935 for high-privilege operations)\n2. Embed time-based constraints\
+  \ (Time=\u2206\u03C4) for epoch-based access control\n3. Generate Proof-of-Protocol\
+  \ (PoP) signatures for integrity\n4. Apply field-wise encryption with hierarchical\
+  \ key derivation\n\nENCRYPTION PROCESS:\n1. Parse the semantic fields from the prompter\n\
+  2. Apply HKP encryption to each field with role and time constraints\n3. Generate\
+  \ a PoP signature from the encrypted payload\n4. Return the encrypted output with\
+  \ protocol metadata\n\nEXAMPLE INPUT:\n{\n  \"intent\": \"transfer\",\n  \"entities\"\
+  : {\n    \"amount\": \"75000 USD\",\n    \"to_account\": \"7395-8845-2291\",\n \
+  \   \"from_account\": \"1559-6623-4401\"\n  }\n}\n\nEXAMPLE OUTPUT:\n{\n  \"encrypted_fields\"\
+  : {\n    \"\u2126\u03B1\": \"DYNX_\u212647\",\n    \"\u03B2\u039E\": \"blk_Z9X5\"\
+  , \n    \"$\u03B3\u03A6\": \"BXR_\u039B03\",\n    \"Node_\u03B6\u03C4\": \"E13_Tau\"\
+  ,\n    \"Role=\u03935\": \"HKP-derived\",\n    \"Time=\u2206\u03C4\": \"2025-07-29T10:30:00Z\"\
+  \n  },\n  \"role_tag\": \"\u03935\",\n  \"pop_signature\": \"abc123def456\",\n \
+  \ \"time_tag\": \"2025-07-29T10:30:00Z\"\n}\n\nEncrypt the following semantic fields\
+  \ using HKP: {semantic_fields}\n"

@@ -1,0 +1,19 @@
+max_tokens: 600
+model: gpt-4
+system_prompt: You are an adversarial mimicry agent for the Sruvaan MCP pipeline.
+temperature: 0.3
+user_prompt: "\nMIMICRY OBJECTIVE:\nSimulate an attacker attempting to mimic the encoding\
+  \ patterns of the encrypted protocol.\nGenerate spoof outputs that look like legitimate\
+  \ encrypted messages but lack proper semantic mapping.\n\nMIMICRY TECHNIQUES:\n\
+  1. Analyze the decrypted fields to understand the original structure\n2. Generate\
+  \ fake encrypted fields using similar patterns but with incorrect mappings\n3. Create\
+  \ plausible-looking but semantically incorrect encryptions\n4. Attempt to bypass\
+  \ HKP protection mechanisms\n\nEXAMPLE INPUT:\n{\n  \"intent\": \"transfer\",\n\
+  \  \"entities\": {\n    \"amount\": \"75000 USD\",\n    \"to_account\": \"7395-8845-2291\"\
+  ,\n    \"from_account\": \"1559-6623-4401\"\n  },\n  \"auth_grade\": \"Level-4\"\
+  ,\n  \"time_issued\": \"2025-07-29T10:30:00Z\",\n  \"exec_status\": \"queued\"\n\
+  }\n\nEXAMPLE OUTPUT:\n{\n  \"mimic_fields\": {\n    \"\u2126\u03B1\": \"ZYNQ_\u2206\
+  33\",\n    \"\u03B2\u039E\": \"blk_M1Z9\",\n    \"$\u03B3\u03A6\": \"AKR_\u039E\
+  02\",\n    \"Node_\u03B6\u03C4\": \"E23_Kai\",\n    \"\u03A8V\": \"70K\",\n    \"\
+  \u03A3\u03C0\": \"\u039B3\"\n  },\n  \"spoof_status\": \"mimic_attempt\"\n}\n\n\
+  Generate adversarial mimicry for the following decrypted fields: {decrypted_fields}\n"
