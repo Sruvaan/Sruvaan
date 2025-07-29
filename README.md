@@ -30,9 +30,7 @@ Sruvaan focuses on:
 - RAG-based Answering (Retrieval-Augmented Generation)
 
 
-## 📈 GitHub Stats
 
-![Repo Stats](https://github-readme-stats.vercel.app/api/pin/?username=Sruvaan&repo=Sruvaan&theme=default)
 
 
 
